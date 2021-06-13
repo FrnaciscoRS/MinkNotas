@@ -1,24 +1,44 @@
 package Francisco.MinkNotas.MinkNotas.Model.Dao;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 
 public class Notas {
 	protected int id;
 	protected String nombre;
-	protected LocalDateTime fechaCreacion;
+	protected LocalDate fechaCreacion;
 	protected String contenido;
+	protected User usuario;
 
-	public Notas(int id, String nombre, LocalDateTime fechaCreacion, String contenido) {
+	public Notas(int id, String nombre, LocalDate fechaCreacion, String contenido, User usuario) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.fechaCreacion = fechaCreacion;
 		this.contenido = contenido;
+		this.usuario = usuario;
 	}
 
 	public Notas() {
-		// super();
-		this(-1, "", LocalDateTime.now(), "");
+		super();
+	}
+	
+	
+
+	public Notas(String nombre, LocalDate fechaCreacion, String contenido, User usuario) {
+		super();
+		this.nombre = nombre;
+		this.fechaCreacion = fechaCreacion;
+		this.contenido = contenido;
+		this.usuario = usuario;
+	}
+
+	public Notas(int id, String nombre, LocalDate fechaCreacion, String contenido) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.fechaCreacion = fechaCreacion;
+		this.contenido = contenido;
 	}
 
 	public int getId() {
@@ -37,11 +57,11 @@ public class Notas {
 		this.nombre = nombre;
 	}
 
-	public LocalDateTime getFechaCreacion() {
+	public LocalDate getFechaCreacion() {
 		return fechaCreacion;
 	}
 
-	public void setFechaCreacion(LocalDateTime fechaCreacion) {
+	public void setFechaCreacion(LocalDate fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
 
@@ -53,10 +73,18 @@ public class Notas {
 		this.contenido = contenido;
 	}
 
+	public User getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
+	}
+
 	@Override
 	public String toString() {
-		return "Notas [id=" + id + ", nombre=" + nombre + ", fechaCreacion=" + fechaCreacion + ", contenido="
-				+ contenido + "]";
+		return "\n"+"Notas [id=" + id + ", nombre=" + nombre + ", fechaCreacion=" + fechaCreacion + ", contenido="
+				+ contenido + ", usuario=" + usuario + "]";
 	}
 
 }
