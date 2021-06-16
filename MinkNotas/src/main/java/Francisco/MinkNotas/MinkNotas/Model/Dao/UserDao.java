@@ -25,7 +25,6 @@ public class UserDao extends User {
 	public UserDao(int id, String nombre, int edad, String dni) {
 		super(id, nombre, edad, dni);
 	}
-	
 
 	public UserDao(String nombre, int edad, String dni) {
 		super(nombre, edad, dni);
@@ -67,7 +66,7 @@ public class UserDao extends User {
 					this.edad = rs.getInt("edad");
 					this.dni = rs.getString("dni");
 				}
-				//this.notas=NotasDao.getNotasbyUser(this.id);
+				// this.notas=NotasDao.getNotasbyUser(this.id);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -125,6 +124,32 @@ public class UserDao extends User {
 
 		return result;
 	}
+	
+	public static List<User> buscaPorID(int id) {
+		List<User> result = new ArrayList<User>();
+		Connection con = Conexion.getConextion();
+		if (con != null) {
+			try {
+				PreparedStatement q = con.prepareStatement(GETBYID);
+				q.setString(1, "%" + id + "%");
+				ResultSet rs = q.executeQuery();
+				while (rs.next()) {
+					// es que hay al menos un resultado
+					User a = new User();
+					a.setId(rs.getInt("id"));
+					a.setDni(rs.getString("dni"));
+					a.setNombre(rs.getString("nombre"));
+					a.setEdad(rs.getInt("edad"));
+					result.add(a);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return result;
+	}
 
 	public boolean eliminarUser() {
 		boolean result = false;
@@ -159,7 +184,7 @@ public class UserDao extends User {
 		if (con != null) {
 			try {
 				PreparedStatement q = con.prepareStatement(INSERTUPDATE);
-				//q.setInt(1, this.id);
+				// q.setInt(1, this.id);
 				q.setString(1, this.nombre);
 				q.setInt(2, this.edad);
 				q.setString(3, this.dni);

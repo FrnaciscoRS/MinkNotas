@@ -35,8 +35,8 @@ public class Main {
 		//a.eliminarNotas();
 		//List<Notas> a=NotasDao.listarTodas();
 		//System.out.println(a);
-		NotasDao n=new NotasDao("mano", LocalDate.now(), "32 euros",new UserDao(1));
-		n.guardarNota();
+		//NotasDao n=new NotasDao("mano", LocalDate.now(), "32 euros",new UserDao(1));
+		//n.guardarNota();
 		
 	}
 
