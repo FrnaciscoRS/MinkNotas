@@ -15,7 +15,8 @@ public class UserDao extends User {
 	private static final String GETBYID = "SELECT id,nombre,edad,dni FROM user WHERE id=";
 	private final static String SELECTBYDNI = "SELECT id,nombre,edad,dni FROM user WHERE dni LIKE ?";
 	private static final String DELETE = "DELETE FROM user WHERE id=?";
-	private final static String INSERTUPDATE = "INSERT INTO user (nombre,edad,dni) " + "VALUES (?,?,?) ";
+	private final static String INSERTINTO = "INSERT INTO user (nombre,edad,dni) " + "VALUES (?,?,?) ";
+	private final static String UPDATE = "UPDATE `user` SET `nombre` = ?, `edad` = ?, `dni` = ? WHERE id = ?";
 
 	public UserDao(int id, String nombre, int edad, String dni, List<Notas> notas) {
 		super(id, nombre, edad, dni, notas);
@@ -183,11 +184,32 @@ public class UserDao extends User {
 		Connection con = Conexion.getConextion();
 		if (con != null) {
 			try {
-				PreparedStatement q = con.prepareStatement(INSERTUPDATE);
+				PreparedStatement q = con.prepareStatement(INSERTINTO);
 				// q.setInt(1, this.id);
 				q.setString(1, this.nombre);
 				q.setInt(2, this.edad);
 				q.setString(3, this.dni);
+				rs = q.executeUpdate();
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return rs;
+	}
+	
+	public int actualizarUsaer() {
+		int rs = 0;
+		Connection con = Conexion.getConextion();
+		if (con != null) {
+			try {
+				PreparedStatement q = con.prepareStatement(UPDATE);
+				// q.setInt(1, this.id);
+				q.setString(1, this.nombre);
+				q.setInt(2, this.edad);
+				q.setString(3, this.dni);
+				q.setInt(4, this.id);
 				rs = q.executeUpdate();
 
 			} catch (SQLException e) {

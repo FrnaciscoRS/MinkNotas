@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
@@ -7,8 +8,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Francisco.MinkNotas.MinkNotas.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Francisco.MinkNotas.MinkNotas.PrimaryController">
    <children>
       <SplitPane dividerPositions="0.6313131313131313" layoutX="177.0" layoutY="120.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -17,9 +19,9 @@
                   <TableView fx:id="tablauser" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="idColumna" prefWidth="88.0" text="ID" />
-                      <TableColumn fx:id="nombreColumna" prefWidth="95.0" text="Nombre" />
-                        <TableColumn fx:id="edadColumna" prefWidth="82.0" text="EDAD" />
-                        <TableColumn fx:id="dniColumna" prefWidth="109.0" text="DNI" />
+                      <TableColumn fx:id="nombreColumna" prefWidth="159.0" text="Nombre" />
+                        <TableColumn fx:id="edadColumna" prefWidth="170.0" text="EDAD" />
+                        <TableColumn fx:id="dniColumna" prefWidth="152.0" text="DNI" />
                     </columns>
                   </TableView>
                </children>
@@ -29,14 +31,31 @@
                   <Label layoutX="27.0" layoutY="14.0" text="Nombre" />
                   <Label layoutX="27.0" layoutY="77.0" text="Edad" />
                   <Label layoutX="30.0" layoutY="139.0" text="DNI" />
-                  <TextField layoutX="27.0" layoutY="41.0" prefHeight="25.0" prefWidth="160.0" />
-                  <TextField layoutX="27.0" layoutY="102.0" prefHeight="25.0" prefWidth="160.0" />
-                  <TextField layoutX="27.0" layoutY="164.0" prefHeight="25.0" prefWidth="160.0" />
-                  <Button layoutX="45.0" layoutY="217.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Añadir" />
-                  <Button layoutX="45.0" layoutY="267.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Modificar" />
-                  <Button layoutX="45.0" layoutY="317.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Eliminar" />
+                  <TextField fx:id="nombreTF" layoutX="27.0" layoutY="41.0" prefHeight="25.0" prefWidth="160.0" />
+                  <TextField fx:id="edadTF" layoutX="27.0" layoutY="102.0" prefHeight="25.0" prefWidth="160.0" />
+                  <TextField fx:id="dniTF" layoutX="27.0" layoutY="164.0" prefHeight="25.0" prefWidth="160.0" />
+                  <Button fx:id="aniadirBT" layoutX="168.0" layoutY="273.0" mnemonicParsing="false" onAction="#aniadir" prefHeight="25.0" prefWidth="116.0" text="Añadir" />
+                  <Button fx:id="modificarBT" layoutX="13.0" layoutY="321.0" mnemonicParsing="false" onAction="#ModificarUser" prefHeight="25.0" prefWidth="116.0" text="Modificar" />
+                  <Button fx:id="eliminarBT" layoutX="168.0" layoutY="321.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="25.0" prefWidth="116.0" text="Eliminar" />
+                  <Button fx:id="vernotasBT" layoutX="13.0" layoutY="273.0" mnemonicParsing="false" onAction="#switchToSecondary" prefHeight="25.0" prefWidth="116.0" text="Ver Notas" />
+                  <Label layoutX="47.0" layoutY="346.0" text="MINK">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="140.0" layoutY="409.0" text="NOTAS">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="refreshBT" layoutX="266.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToPrimary" text="Refresh" />
+                  <Label layoutX="35.0" layoutY="198.0" text="ID" />
+                  <TextField fx:id="idTF" layoutX="27.0" layoutY="227.0" prefHeight="25.0" prefWidth="160.0" />
                </children></AnchorPane>
         </items>
       </SplitPane>
    </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </AnchorPane>

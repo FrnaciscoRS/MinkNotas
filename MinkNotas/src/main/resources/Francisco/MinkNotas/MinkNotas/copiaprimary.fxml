@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Francisco.MinkNotas.MinkNotas.PrimaryController">
+   <children>
+      <SplitPane dividerPositions="0.6313131313131313" layoutX="177.0" layoutY="120.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView prefHeight="564.0" prefWidth="548.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn prefWidth="114.0" text="ID" />
+                      <TableColumn prefWidth="184.0" text="Nombre" />
+                        <TableColumn prefWidth="78.0" text="EDAD" />
+                        <TableColumn prefWidth="171.0" text="DNI" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="325.0">
+               <children>
+                  <Label layoutX="28.0" layoutY="21.0" text="Nombre" />
+                  <Label layoutX="31.0" layoutY="102.0" text="EDAD" />
+                  <Label layoutX="36.0" layoutY="176.0" text="DNI" />
+                  <TextField layoutX="22.0" layoutY="46.0" prefHeight="25.0" prefWidth="283.0" />
+                  <TextField layoutX="22.0" layoutY="119.0" prefHeight="25.0" prefWidth="283.0" />
+                  <TextField layoutX="22.0" layoutY="193.0" prefHeight="25.0" prefWidth="283.0" />
+                  <Button layoutX="36.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Añadir" />
+                  <Button layoutX="37.0" layoutY="367.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Modificar" />
+                  <Button layoutX="37.0" layoutY="425.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Eliminar" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
