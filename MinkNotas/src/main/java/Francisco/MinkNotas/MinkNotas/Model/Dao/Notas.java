@@ -4,12 +4,23 @@ import java.time.LocalDate;
 
 
 public class Notas {
+	/**
+	 * atributos de la clase notas
+	 */
 	protected int id;
 	protected String nombre;
 	protected LocalDate fechaCreacion;
 	protected String contenido;
 	protected User usuario;
 
+	/**
+	 * Constructor de notas
+	 * @param id
+	 * @param nombre
+	 * @param fechaCreacion
+	 * @param contenido
+	 * @param usuario
+	 */
 	public Notas(int id, String nombre, LocalDate fechaCreacion, String contenido, User usuario) {
 		super();
 		this.id = id;
@@ -18,6 +29,9 @@ public class Notas {
 		this.contenido = contenido;
 		this.usuario = usuario;
 	}
+	/**
+	 * constructor vacio
+	 */
 
 	public Notas() {
 		super();
@@ -40,7 +54,9 @@ public class Notas {
 		this.fechaCreacion = fechaCreacion;
 		this.contenido = contenido;
 	}
-
+/**
+ * Todos los get y set de notas
+ */
 	public int getId() {
 		return id;
 	}
@@ -80,7 +96,9 @@ public class Notas {
 	public void setUsuario(User usuario) {
 		this.usuario = usuario;
 	}
-
+/**
+ * toString de notas
+ */
 	@Override
 	public String toString() {
 		return "\n"+"Notas [id=" + id + ", nombre=" + nombre + ", fechaCreacion=" + fechaCreacion + ", contenido="

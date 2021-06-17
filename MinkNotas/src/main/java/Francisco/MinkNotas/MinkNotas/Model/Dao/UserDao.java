@@ -11,6 +11,9 @@ import java.util.List;
 import Francisco.MinkNotas.MinkNotas.Utils.Conexion;
 
 public class UserDao extends User {
+	/**
+	 * Todas las consultas para consultar,eliminar y editar los usuarios
+	 */
 	private static final String SELECTALL = "SELECT id,nombre,edad,dni FROM `user`";
 	private static final String GETBYID = "SELECT id,nombre,edad,dni FROM user WHERE id=";
 	private final static String SELECTBYDNI = "SELECT id,nombre,edad,dni FROM user WHERE dni LIKE ?";
@@ -49,7 +52,10 @@ public class UserDao extends User {
 		this.notas = a.notas;
 
 	}
-
+/**
+ * constructor de usuario qeu devuelve un usuario entero solo con el id
+ * @param id
+ */
 	public UserDao(int id) {
 		// getByID from mariaDB
 		// Conexion
@@ -74,7 +80,10 @@ public class UserDao extends User {
 			}
 		}
 	}
-
+/**
+ * Metodo que muestra todos los usuarios
+ * @return todos los usuarios de la lista
+ */
 	public static List<User> listarTodos() {
 		List<User> result = new ArrayList<User>();
 		try {
@@ -99,7 +108,11 @@ public class UserDao extends User {
 
 		return result;
 	}
-
+/**
+ * Metodo que busca usuario por dni
+ * @param dni
+ * @return un usuario
+ */
 	public static List<User> buscaPorDNI(String dni) {
 		List<User> result = new ArrayList<User>();
 		Connection con = Conexion.getConextion();
@@ -125,7 +138,11 @@ public class UserDao extends User {
 
 		return result;
 	}
-	
+	/**
+	 * Metodo que busca usuario por id
+	 * @param id
+	 * @return devuelve un usuario
+	 */
 	public static List<User> buscaPorID(int id) {
 		List<User> result = new ArrayList<User>();
 		Connection con = Conexion.getConextion();
@@ -151,7 +168,12 @@ public class UserDao extends User {
 
 		return result;
 	}
-
+	
+	/**
+	 * Método que elimina usuarios
+	 * 
+	 * @return false si no es eliminado true si es eliminado
+	 */
 	public boolean eliminarUser() {
 		boolean result = false;
 		Connection con = Conexion.getConextion();
@@ -198,7 +220,13 @@ public class UserDao extends User {
 		}
 		return rs;
 	}
-	
+	/**
+	 * Método que inserta la instancia
+	 * 
+	 * @return 0 si no se consiguió insertar o un numero positivo en función de las
+	 *         instancias insertadas, lo normal es que devuelva 1 si todo ha ido
+	 *         bien.
+	 */
 	public int actualizarUsaer() {
 		int rs = 0;
 		Connection con = Conexion.getConextion();

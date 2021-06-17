@@ -35,7 +35,7 @@
                   <TextField fx:id="nombreTF" layoutX="23.0" layoutY="23.0" prefHeight="25.0" prefWidth="160.0" />
                   <TextField fx:id="contenidoTF" layoutX="23.0" layoutY="123.0" prefHeight="25.0" prefWidth="160.0" />
                   <Button fx:id="aniadirBT" layoutX="197.0" layoutY="304.0" mnemonicParsing="false" onAction="#aniadir" prefHeight="25.0" prefWidth="116.0" text="Añadir" />
-                  <Button layoutX="41.0" layoutY="353.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Modificar" />
+                  <Button fx:id="modificarBT" layoutX="41.0" layoutY="353.0" mnemonicParsing="false" onAction="#ModificarNotas" prefHeight="25.0" prefWidth="116.0" text="Modificar" />
                   <Button fx:id="eliminarBT" layoutX="203.0" layoutY="353.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="25.0" prefWidth="116.0" text="Eliminar" />
                   <Button fx:id="verusuariosBT" layoutX="41.0" layoutY="304.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="25.0" prefWidth="116.0" text="Usuarios" />
                   <DatePicker fx:id="fechaDP" layoutX="23.0" layoutY="71.0" />
@@ -52,8 +52,8 @@
                   <Label layoutX="27.0" layoutY="157.0" text="IdUsuario" />
                   <TextField fx:id="idusuarioTF" layoutX="24.0" layoutY="184.0" prefHeight="25.0" prefWidth="160.0" />
                   <Button fx:id="refresthBT" layoutX="255.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToSecondary" prefHeight="25.0" prefWidth="56.0" text="Refresh" />
-                  <Label layoutX="27.0" layoutY="216.0" text="Label" />
-                  <TextField layoutX="24.0" layoutY="244.0" prefHeight="25.0" prefWidth="160.0" />
+                  <Label layoutX="27.0" layoutY="216.0" text="ID" />
+                  <TextField fx:id="idTF" layoutX="24.0" layoutY="244.0" prefHeight="25.0" prefWidth="160.0" />
                </children></AnchorPane>
         </items>
       </SplitPane>

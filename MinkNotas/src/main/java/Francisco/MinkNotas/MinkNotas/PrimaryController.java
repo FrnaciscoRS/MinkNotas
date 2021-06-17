@@ -65,6 +65,9 @@ public class PrimaryController {
 	@FXML
 	private TableColumn<User, String> idColumna;
 
+	/**
+	 * Metodo que inicializa la segunda vista
+	 */
 	@FXML
 	protected void initialize() {
 		System.out.println("Cargando...");
@@ -75,12 +78,11 @@ public class PrimaryController {
 		tablauser.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			muestrainfo(newValue);
 		});
-
-		// muestrainfo(newValue);
-		// });
-
 	}
 
+	/**
+	 * Metodo para mostrar informacion en el tableview
+	 */
 	private void configuraTabla() {
 		dniColumna.setCellValueFactory(cadapersona -> {
 			SimpleStringProperty v = new SimpleStringProperty();
@@ -105,6 +107,12 @@ public class PrimaryController {
 
 	}
 
+	/**
+	 * Metodo que me permite mostrar toda la informacion de las notas en los
+	 * TEXTFIELD
+	 * 
+	 * @param u
+	 */
 	private void muestrainfo(User u) {
 		if (u != null) {
 			dniTF.setText(u.getDni());
@@ -119,21 +127,25 @@ public class PrimaryController {
 		}
 	}
 
-	/*
-	 * private void muestranotas(User u) { if (u != null) {
-	 * dniTF.setText(u.getDni()); nombreTF.setText(u.getNombre());
-	 * edadTF.setText(String.valueOf(u.getEdad())); } else { dniTF.setText("");
-	 * nombreTF.setText(""); edadTF.setText(String.valueOf("")); } }
+	/**
+	 * Metodo para añadir nuevas notas
+	 * 
+	 * @param event
 	 */
 
 	public void aniadir(ActionEvent event) {
 		UserDao u = new UserDao();
 		u.setNombre(nombreTF.getText());
 		u.setEdad(Integer.parseInt(edadTF.getText()));
-		u.setDni(nombreTF.getText());
+		u.setDni(dniTF.getText());
 		u.guardarUser();
 	}
 
+	/**
+	 * Metodo para eliminar notas
+	 * 
+	 * @param event
+	 */
 	public void eliminar(ActionEvent event) {
 		UserDao u = new UserDao();
 		int a = tablauser.getSelectionModel().getSelectedItem().getId();
@@ -141,13 +153,19 @@ public class PrimaryController {
 		u.eliminarUser();
 
 	}
+
 	public void buscarUser(User u) {
-		UserDao q=new UserDao();
+		UserDao q = new UserDao();
 		int a = tablauser.getSelectionModel().getSelectedItem().getId();
 		q.buscaPorID(a);
-		
 
 	}
+
+	/**
+	 * Metodo para modificar las notas
+	 * 
+	 * @param event
+	 */
 	public void ModificarUser(ActionEvent event) {
 		UserDao u = new UserDao();
 		u.setNombre(nombreTF.getText());
@@ -158,13 +176,24 @@ public class PrimaryController {
 
 	}
 
-	 @FXML
-	    private void switchToSecondary() throws IOException {
-	        App.setRoot("secondary");
-	    }
-	 @FXML
-		private void switchToPrimary() throws IOException {
-			App.setRoot("primary");
-		}
+	/**
+	 * Metodo QUe me permite cambiar a la vista de las notas
+	 * 
+	 * @throws IOException
+	 */
+	@FXML
+	private void switchToSecondary() throws IOException {
+		App.setRoot("secondary");
+	}
+
+	/**
+	 * Metodo QUe me permite refrescar la pagina
+	 * 
+	 * @throws IOException
+	 */
+	@FXML
+	private void switchToPrimary() throws IOException {
+		App.setRoot("primary");
+	}
 
 }

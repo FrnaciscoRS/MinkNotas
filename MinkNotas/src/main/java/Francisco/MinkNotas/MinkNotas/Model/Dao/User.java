@@ -3,12 +3,18 @@ package Francisco.MinkNotas.MinkNotas.Model.Dao;
 import java.util.List;
 
 public class User {
+	/**
+	 * Atributos de la clase usuario
+	 */
 	protected int id;
 	protected String nombre;
 	protected int edad;
 	protected String dni;
 	protected List<Notas> notas;
-
+	
+	/**
+	 * Constructoes de la clase usuario
+	 */
 	public User(int id, String nombre, int edad, String dni, List<Notas> notas) {
 		super();
 		this.id = id;
@@ -17,7 +23,6 @@ public class User {
 		this.dni = dni;
 		this.notas = notas;
 	}
-	
 
 	public User(String nombre, int edad, String dni) {
 		super();
@@ -26,7 +31,6 @@ public class User {
 		this.dni = dni;
 	}
 
-
 	public User(int id, String nombre, int edad, String dni) {
 		super();
 		this.id = id;
@@ -34,7 +38,6 @@ public class User {
 		this.edad = edad;
 		this.dni = dni;
 	}
-	
 
 	public User(String nombre, int edad, String dni, List<Notas> notas) {
 		super();
@@ -43,7 +46,9 @@ public class User {
 		this.dni = dni;
 		this.notas = notas;
 	}
-
+/**
+ * Constructor por defecto
+ */
 	public User() {
 		// super();
 		this(-1, "", -1, "");
@@ -93,35 +98,11 @@ public class User {
 	public void setNotas(List<Notas> notas) {
 		this.notas = notas;
 	}
-
+/**
+ * Metodo tostring
+ */
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nombre=" + nombre + ", edad=" + edad + ", dni=" + dni + ", notas=" + notas + "]";
 	}
-
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		return result;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
-	
-
 }

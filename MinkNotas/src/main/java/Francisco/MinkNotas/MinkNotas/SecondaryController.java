@@ -21,6 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class SecondaryController {
+	// Declaramos los Label
 	@FXML
 	private Label nombreLAbel;
 	@FXML
@@ -51,6 +52,8 @@ public class SecondaryController {
 	private TextField contenidoTF;
 	@FXML
 	private TextField idusuarioTF;
+	@FXML
+	private TextField idTF;
 
 	// Declaramos los textfileds
 	@FXML
@@ -69,6 +72,9 @@ public class SecondaryController {
 	@FXML
 	private TableColumn<Notas, String> id_UsuarioColumna;
 
+	/**
+	 * Metodo que inicializa la segunda vista
+	 */
 	@FXML
 	protected void initialize() {
 		// muestrainfo(null);
@@ -79,11 +85,11 @@ public class SecondaryController {
 			muestrainfo(newValue);
 		});
 
-		// muestrainfo(newValue);
-		// });
-
 	}
 
+	/**
+	 * Metodo para mostrar informacion en el tableview
+	 */
 	private void configuraTabla() {
 		nombreColumna.setCellValueFactory(cadapersona -> {
 			SimpleStringProperty v = new SimpleStringProperty();
@@ -113,19 +119,33 @@ public class SecondaryController {
 
 	}
 
+	/**
+	 * Metodo que me permite mostrar toda la informacion de las notas en los
+	 * TEXTFIELD
+	 * 
+	 * @param u
+	 */
 	private void muestrainfo(Notas u) {
 		if (u != null) {
 			contenidoTF.setText(u.getContenido());
 			nombreTF.setText(u.getNombre());
 			fechaDP.setPromptText(String.valueOf(u.getFechaCreacion()));
+			idusuarioTF.setText(String.valueOf(u.getUsuario().getId()));
+			idTF.setText(String.valueOf(u.getId()));
 		} else {
 			contenidoTF.setText("");
 			nombreTF.setText("");
 			fechaDP.setPromptText(String.valueOf(""));
+			idusuarioTF.setText(String.valueOf(""));
+			idTF.setText(String.valueOf(""));
 		}
 	}
 
-	
+	/**
+	 * Metodo para añadir nuevas notas
+	 * 
+	 * @param event
+	 */
 	public void aniadir(ActionEvent event) {
 		NotasDao u = new NotasDao();
 		u.setNombre(nombreTF.getText());
@@ -135,6 +155,11 @@ public class SecondaryController {
 		u.guardarNota();
 	}
 
+	/**
+	 * Metodo para eliminar notas
+	 * 
+	 * @param event
+	 */
 	public void eliminar(ActionEvent event) {
 		NotasDao u = new NotasDao();
 		int a = tablanotas.getSelectionModel().getSelectedItem().getId();
@@ -143,10 +168,37 @@ public class SecondaryController {
 
 	}
 
+	/**
+	 * Metodo para modificar las notas
+	 * 
+	 * @param event
+	 */
+	public void ModificarNotas(ActionEvent event) {
+		NotasDao u = new NotasDao();
+		u.setNombre(nombreTF.getText());
+		u.setFechaCreacion(fechaDP.getValue());
+		u.setContenido(contenidoTF.getText());
+		u.setUsuario(new UserDao(Integer.parseInt(idusuarioTF.getText())));
+		u.setId(Integer.parseInt(idTF.getText()));
+		u.actualizarNotas();
+
+	}
+
+	/**
+	 * Metodo QUe me permite cambiar a la vista de usuarios
+	 * 
+	 * @throws IOException
+	 */
 	@FXML
 	private void switchToPrimary() throws IOException {
 		App.setRoot("primary");
 	}
+
+	/**
+	 * Metodo QUe me permite refrescar la pagina
+	 * 
+	 * @throws IOException
+	 */
 
 	@FXML
 	private void switchToSecondary() throws IOException {
